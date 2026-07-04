@@ -1,0 +1,18 @@
+[
+  {"role": "Software Engineer", "type": "technical", "question": "Explain the difference between a process and a thread.", "topic": "OS"},
+  {"role": "Software Engineer", "type": "technical", "question": "What is the time complexity of quicksort in the average and worst case?", "topic": "DSA"},
+  {"role": "Software Engineer", "type": "technical", "question": "How does a hash map handle collisions?", "topic": "DSA"},
+  {"role": "Software Engineer", "type": "technical", "question": "Explain normalization in relational databases with an example.", "topic": "DBMS"},
+  {"role": "Software Engineer", "type": "technical", "question": "What is the difference between REST and GraphQL?", "topic": "Web"},
+  {"role": "Software Engineer", "type": "technical", "question": "Explain the concept of closures in JavaScript.", "topic": "Programming"},
+  {"role": "Software Engineer", "type": "technical", "question": "What are ACID properties in a database transaction?", "topic": "DBMS"},
+  {"role": "Software Engineer", "type": "technical", "question": "Explain TCP vs UDP.", "topic": "Networking"},
+  {"role": "Software Engineer", "type": "behavioral", "question": "Tell me about a time you disagreed with a teammate. How did you resolve it?", "topic": "HR"},
+  {"role": "Software Engineer", "type": "behavioral", "question": "Describe a project where you had to learn a new technology quickly.", "topic": "HR"},
+  {"role": "Software Engineer", "type": "behavioral", "question": "How do you prioritize tasks when you have multiple deadlines?", "topic": "HR"},
+  {"role": "Data Analyst", "type": "technical", "question": "Write a SQL query to find the second highest salary from an Employee table.", "topic": "SQL"},
+  {"role": "Data Analyst", "type": "technical", "question": "What is the difference between INNER JOIN and LEFT JOIN?", "topic": "SQL"},
+  {"role": "Data Analyst", "type": "technical", "question": "Explain the bias-variance tradeoff.", "topic": "ML"},
+  {"role": "Data Analyst", "type": "technical", "question": "How would you handle missing data in a dataset?", "topic": "Statistics"},
+  {"role": "Data Analyst", "type": "behavioral", "question": "Tell me about a time your analysis changed a business decision.", "topic": "HR"}
+]

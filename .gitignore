@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+chroma_store/
+node_modules/
+.DS_Store

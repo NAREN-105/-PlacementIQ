@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PlacementIQ — Multi-Agent Placement Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">PQ</span>
+    <span class="brand-name">Placement<strong>IQ</strong></span>
+  </div>
+  <nav class="agent-status" id="agentStatus">
+    <span class="dot" data-agent="resume"></span> Resume Agent
+    <span class="dot" data-agent="skillgap"></span> Skill-Gap Agent
+    <span class="dot" data-agent="interview"></span> Interview Agent
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Multi-Agent Placement Preparation Coach</p>
+    <h1>One resume in. Three specialist agents run. One readiness report out.</h1>
+    <p class="sub">Upload your resume once — the Orchestrator routes it through the Resume Agent, Skill-Gap Agent, and Interview Agent in sequence, then hands you off to a live mock interview seeded with role-specific questions.</p>
+  </section>
+
+  <section class="upload-panel" id="uploadPanel">
+    <div class="upload-box" id="dropZone">
+      <input type="file" id="fileInput" accept=".pdf,.txt" hidden />
+      <p class="upload-label">Drop your resume here (PDF or TXT)</p>
+      <button class="btn-primary" id="browseBtn">Choose File</button>
+      <p class="filename" id="fileName"></p>
+    </div>
+    <button class="btn-run" id="runBtn" disabled>Run Full Pipeline →</button>
+  </section>
+
+  <section class="pipeline-trace" id="pipelineTrace" hidden>
+    <div class="trace-step" data-step="resume"><span class="idx">01</span> Resume Agent<span class="state">pending</span></div>
+    <div class="trace-arrow">→</div>
+    <div class="trace-step" data-step="skillgap"><span class="idx">02</span> Skill-Gap Agent<span class="state">pending</span></div>
+    <div class="trace-arrow">→</div>
+    <div class="trace-step" data-step="interview"><span class="idx">03</span> Interview Agent<span class="state">pending</span></div>
+  </section>
+
+  <section class="results" id="results" hidden>
+    <div class="results-header">
+      <span class="results-eyebrow">Orchestrator output</span>
+      <button class="btn-secondary" id="resetBtn">↺ Analyze a different resume</button>
+    </div>
+
+
+    <div class="panel">
+      <h2>Resume Analysis</h2>
+      <div class="score-row">
+        <div class="gauge-wrap">
+          <svg viewBox="0 0 120 120" class="gauge">
+            <circle cx="60" cy="60" r="52" class="gauge-track"/>
+            <circle cx="60" cy="60" r="52" class="gauge-fill" id="resumeGaugeFill"/>
+          </svg>
+          <div class="gauge-label"><span id="resumeScoreNum">0</span><small>/100</small></div>
+        </div>
+        <div class="score-meta">
+          <p class="target-role">Suggested target role: <strong id="targetRole">—</strong></p>
+          <div class="pill-group" id="skillPills"></div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Strengths</h3>
+          <ul id="strengthsList"></ul>
+        </div>
+        <div>
+          <h3>Weaknesses</h3>
+          <ul id="weaknessesList"></ul>
+        </div>
+      </div>
+      <h3>Improvement Suggestions</h3>
+      <ul id="suggestionsList"></ul>
+    </div>
+
+    <div class="panel">
+      <h2>Skill Gap</h2>
+      <div class="readiness-bar-wrap">
+        <div class="readiness-bar"><div class="readiness-fill" id="readinessFill"></div></div>
+        <span id="readinessLabel">0% ready</span>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Matched</h3>
+          <ul class="matched" id="matchedSkills"></ul>
+        </div>
+        <div>
+          <h3>Missing</h3>
+          <ul class="missing" id="missingSkills"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel interview-panel">
+      <h2>Mock Interview — <span id="interviewRoleLabel">—</span></h2>
+
+      <div class="interview-setup" id="interviewSetup">
+        <p class="setup-label">Choose difficulty</p>
+        <div class="difficulty-group" id="difficultyGroup">
+          <button class="difficulty-pill" data-level="Beginner">Beginner</button>
+          <button class="difficulty-pill active" data-level="Intermediate">Intermediate</button>
+          <button class="difficulty-pill" data-level="Advanced">Advanced</button>
+        </div>
+        <button class="btn-primary" id="startInterviewBtn">Start Mock Interview →</button>
+      </div>
+
+      <div id="interviewLive" hidden>
+        <div class="chat-window" id="chatWindow"></div>
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Type your answer..." />
+          <button class="btn-primary" id="sendBtn">Send</button>
+          <button class="btn-secondary" id="finishBtn">Finish & Score</button>
+        </div>
+        <div class="interview-score" id="interviewScore" hidden></div>
+        <button class="btn-secondary restart-btn" id="restartBtn">↺ Restart with different difficulty</button>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <p>PlacementIQ — Built for individual project submission · Orchestrator + Resume/Skill-Gap/Interview Agents · Groq (Llama 3.3 70B) + Gemini + ChromaDB</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
