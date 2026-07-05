@@ -1,18 +1,9 @@
 server {
-    listen 80;
-    root /usr/share/nginx/html;
-    index index.html;
+       listen 80;
+       root /usr/share/nginx/html;
+       index index.html;
 
-    resolver ${NGINX_ENTRYPOINT_LOCAL_RESOLVERS};
-
-    location /api/ {
-        set $backend_upstream http://backend:8000;
-        proxy_pass $backend_upstream/api/;
-        proxy_set_header Host $host;
-        proxy_read_timeout 120s;
-    }
-
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-}
+       location / {
+           try_files $uri $uri/ /index.html;
+       }
+   }
