@@ -25,13 +25,60 @@
 <main>
   <section class="hero">
     <p class="eyebrow">Multi-Agent Placement Preparation Coach</p>
-    <h1>One resume in. Three specialist agents run. One readiness report out.</h1>
-    <p class="sub">Upload your resume once — the Orchestrator routes it through the Resume Agent, Skill-Gap Agent, and Interview Agent in sequence, then hands you off to a live mock interview seeded with role-specific questions.</p>
+    <h1>Your resume doesn't get <em>read</em>. It gets <em>run</em> through a pipeline.</h1>
+    <p class="sub">Three specialist AI agents, orchestrated in sequence — not one chatbot pretending to do everything.</p>
+
+    <div class="pipeline-diagram" role="img" aria-label="Resume flows through Resume Agent, Skill-Gap Agent, and Interview Agent to produce a readiness report">
+      <svg viewBox="0 0 900 170" xmlns="http://www.w3.org/2000/svg">
+        <path id="flowPath" d="M 80 85 L 820 85" stroke="#2a2e3a" stroke-width="2" fill="none"/>
+        <circle r="4" fill="#f5a623">
+          <animateMotion dur="3.2s" repeatCount="indefinite" path="M 80 85 L 820 85"/>
+        </circle>
+
+        <!-- Resume (input) -->
+        <g class="node node-io">
+          <rect x="20" y="60" width="120" height="50" rx="10"/>
+          <text x="80" y="90" text-anchor="middle" class="node-label">Resume</text>
+        </g>
+
+        <!-- Agent 1 -->
+        <g class="node node-agent">
+          <rect x="200" y="55" width="150" height="60" rx="10"/>
+          <text x="275" y="80" text-anchor="middle" class="node-idx">01</text>
+          <text x="275" y="99" text-anchor="middle" class="node-label">Resume Agent</text>
+        </g>
+
+        <!-- Agent 2 -->
+        <g class="node node-agent">
+          <rect x="405" y="55" width="150" height="60" rx="10"/>
+          <text x="480" y="80" text-anchor="middle" class="node-idx">02</text>
+          <text x="480" y="99" text-anchor="middle" class="node-label">Skill-Gap Agent</text>
+        </g>
+
+        <!-- Agent 3 -->
+        <g class="node node-agent">
+          <rect x="610" y="55" width="150" height="60" rx="10"/>
+          <text x="685" y="80" text-anchor="middle" class="node-idx">03</text>
+          <text x="685" y="99" text-anchor="middle" class="node-label">Interview Agent</text>
+        </g>
+
+        <!-- Report (output) -->
+        <g class="node node-io">
+          <rect x="800" y="60" width="90" height="50" rx="10"/>
+          <text x="845" y="90" text-anchor="middle" class="node-label">Report</text>
+        </g>
+      </svg>
+      <p class="diagram-caption">orchestrated end-to-end by a single <code>/pipeline/full-report</code> call</p>
+    </div>
   </section>
 
   <section class="upload-panel" id="uploadPanel">
     <div class="upload-box" id="dropZone">
       <input type="file" id="fileInput" accept=".pdf,.txt" hidden />
+      <svg class="upload-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 16V4M12 4L7 9M12 4l5 5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
       <p class="upload-label">Drop your resume here (PDF or TXT)</p>
       <button class="btn-primary" id="browseBtn">Choose File</button>
       <p class="filename" id="fileName"></p>
@@ -130,7 +177,7 @@
 </main>
 
 <footer>
-  <p>PlacementIQ — Built for individual project submission · Orchestrator + Resume/Skill-Gap/Interview Agents · Groq (Llama 3.3 70B) + Gemini + ChromaDB</p>
+  <p>PlacementIQ — Built for individual project submission · Orchestrator + Resume/Skill-Gap/Interview Agents · Groq (Llama 3.3 70B) + ChromaDB</p>
 </footer>
 
 <script src="app.js"></script>
