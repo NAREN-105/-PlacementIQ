@@ -38,9 +38,12 @@ def _parse(raw: str) -> dict | None:
 
 
 def _analyze_with_gemini(resume_text: str) -> str:
-    model = genai.GenerativeModel(settings.GEMINI_MODEL)
-    response = model.generate_content(_PROMPT.format(resume_text=resume_text[:12000]))
-    return response.text
+       model = genai.GenerativeModel(settings.GEMINI_MODEL)
+       response = model.generate_content(
+           _PROMPT.format(resume_text=resume_text[:12000]),
+           request_options={"timeout": 15},
+       )
+       return response.text
 
 
 def _analyze_with_groq(resume_text: str) -> str:
