@@ -1,3 +1,2 @@
 Dockerfile
-   default.conf.template
    .dockerignore
