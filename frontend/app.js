@@ -1,5 +1,5 @@
 // API_BASE is relative: nginx (see nginx.conf) proxies /api/* to the backend container.
-const PRODUCTION_BACKEND_URL = "REPLACE_WITH_YOUR_BACKEND_PUBLIC_URL";
+const PRODUCTION_BACKEND_URL = "placementiq-production-5afe.up.railway.app";
    const isLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
    const API_BASE = isLocal ? "http://localhost:8000" : PRODUCTION_BACKEND_URL;
 
