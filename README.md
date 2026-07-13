@@ -11,6 +11,7 @@
 
 > PlacementIQ takes one resume and runs it through **three specialist AI agents, orchestrated in sequence** — Resume Agent → Skill-Gap Agent → Interview Agent — to produce a single readiness report and hand the candidate straight into a live, role-specific mock interview.
 
+
 ---
 
 ## 📑 Table of Contents
